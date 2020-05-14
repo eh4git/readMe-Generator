@@ -1,7 +1,5 @@
 
-function generateMarkdown(data) {
-  return `
-# ${data.title}
+# f
 
 ### 
 
@@ -21,7 +19,3 @@ function generateMarkdown(data) {
 ##### Github Profile Picture
 ##### Github Email
 
-`;
-}
-
-module.exports = generateMarkdown;
