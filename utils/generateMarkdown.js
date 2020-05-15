@@ -2,6 +2,7 @@
 function generateMarkdown(data) {
   return `
 # ${data.title}
+[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 ### Table of Contents
 * [Describtrion](#Describtrion)
@@ -15,6 +16,7 @@ function generateMarkdown(data) {
   * [Github Email](#Github_Profile)
 ### Description
 ${data.description}
+
 ### Installation
 ${data.installation}
 ### Useage
@@ -28,7 +30,7 @@ ${data.test}
 ### Questions
 ${data.questions}
 ##### Profile_Picture
-${data.license}
+![Erik's Github Profile Picture](https://avatars0.githubusercontent.com/u/63175319?s=460&v=4)
 ##### Github_Profile
 [eh4git](http://github.com/${data.gitHubUser})
 
