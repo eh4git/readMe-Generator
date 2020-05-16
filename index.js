@@ -28,17 +28,17 @@ const questions = [
         name: "use"
     },
     {
-        type: "checkbox",
+        type: "input",
         message: "What type of license will this project have?",
-        choices: [" ISC", " MIT"," WTFPL", " GPL 3.0",  " Apache 2.0", " GPL 2.0", " BSD 3", " LGPL 2.1", " Ms-Pl", " BSD 2", " Zlib", " Eclipse 1.0", " BSD 4"],
+        // choices: ["ISC", " MIT"," WTFPL", " GPL 3.0",  " Apache 2.0", " GPL 2.0", " BSD 3", " LGPL 2.1", " Ms-Pl", " BSD 2", " Zlib", " Eclipse 1.0", " BSD 4"],
         name: "license",
-        default: " ISC",
+        default: "ISC",
     },
     {
         type: "input",
         message: "What can be done to test the app?.",
         name: "test",
-        default:"In your terminal enter: npm test"
+        default:"In your terminal enter: npm run test"
     },
     {
         type: "input",
@@ -55,6 +55,11 @@ const questions = [
         type: "input",
         message: "What is your GitHub user name?",
         name: "gitHubUser"
+    },
+    {
+        type: "input",
+        message: "What is your GitHub email?",
+        name: "gitHubEmail"
     },
 ];
 
