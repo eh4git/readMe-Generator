@@ -32,7 +32,7 @@ const questions = [
         message: "What type of license will this project have?",
         choices: [" ISC", " MIT"," WTFPL", " GPL 3.0",  " Apache 2.0", " GPL 2.0", " BSD 3", " LGPL 2.1", " Ms-Pl", " BSD 2", " Zlib", " Eclipse 1.0", " BSD 4"],
         name: "license",
-        
+        default: " ISC",
     },
     {
         type: "input",
@@ -57,12 +57,6 @@ const questions = [
         name: "gitHubUser"
     },
 ];
-
-// function writeToFile(fileName, data) {
-
-//     return fs.writeFileSync(path.join(process.cwd(), fileName), data);
-// }
-
 
 function init() {
     inquirer.prompt(questions).then((answers) => {

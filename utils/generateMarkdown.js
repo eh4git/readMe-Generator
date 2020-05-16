@@ -2,17 +2,17 @@ const getBadge = (gitName,title,license) => {
   const gitUrl = `https://github.com/${gitName}/${title}`;
   //forloop loop through licenses and create these strings badges
   console.log(license);
+ 
   const licenseString = `[![GitHub Badge](https://img.shields.io/badge/License-${license}-blue.svg)](${gitUrl})`;
   return licenseString;
 }
 
 
-// [![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
-// [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
 function generateMarkdown(data) {
   return `
-# ${data.title}
+  # ${data.title}
+  
 ${getBadge(data.gitHubUser,data.title,data.license)}
 ### Table of Contents
 * [Describtrion](#Describtrion)

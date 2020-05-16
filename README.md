@@ -1,6 +1,7 @@
 
-# jg
-[![GitHub Badge](https://img.shields.io/badge/License- ISC-blue.svg)](https://github.com//jg)
+  # adf
+  
+[![GitHub Badge](https://img.shields.io/badge/License- ISC-blue.svg)](https://github.com/eh4git/adf)
 ### Table of Contents
 * [Describtrion](#Describtrion)
 * [Installation](#Installation)
@@ -12,7 +13,7 @@
   * [Profile Picture](#Profile_Picture)
   * [Github Email](#Github_Profile)
 ### Description
-mh
+When you need to create a ReadMe for a project this application will produce one quickly and easily. The user will answer prompts in the terminal and will receive a well laid out ReadMe that is unique to the project.
 
 ### Installation
 Follow the steps below to install the required node packages.
@@ -26,11 +27,11 @@ This project uses the following licence(s):
 Please feel free to contribute in any way you wish. Please read the documentation and submit a pull request. Any contributions are greatly appreciated. Feedback is also welcomed.
 ### Tests
 To test the application enter the following command into your terminal:
-In your terminal enter: npm test
+adsf
 ### Questions
 
 ##### Profile_Picture
 ![Erik's Github Profile Picture](https://avatars0.githubusercontent.com/u/63175319?s=460&v=4)
 ##### Github_Profile
-[eh4git](http://github.com/)
+[eh4git](http://github.com/eh4git)
 
