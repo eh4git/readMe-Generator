@@ -58,16 +58,15 @@ const questions = [
     },
 ];
 
-function writeToFile(fileName, data) {
+// function writeToFile(fileName, data) {
 
-    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
-}
+//     return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+// }
 
 
 function init() {
-    inquirer.prompt(questions).then((response) => {
-
-        writeToFile("README.md", generateMarkdown({ ...response }));
+    inquirer.prompt(questions).then((answers) => {
+       fs.writeFileSync(path.join(process.cwd(), "README.md"), generateMarkdown({ ...answers }));
     });
 }
 

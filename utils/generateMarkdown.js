@@ -1,9 +1,19 @@
+const getBadge = (gitName,title,license) => {
+  const gitUrl = `https://github.com/${gitName}/${title}`;
+  //forloop loop through licenses and create these strings badges
+  console.log(license);
+  const licenseString = `[![GitHub Badge](https://img.shields.io/badge/License-${license}-blue.svg)](${gitUrl})`;
+  return licenseString;
+}
+
+
+// [![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
+// [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
 function generateMarkdown(data) {
   return `
 # ${data.title}
-[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
-[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+${getBadge(data.gitHubUser,data.title,data.license)}
 ### Table of Contents
 * [Describtrion](#Describtrion)
 * [Installation](#Installation)
@@ -18,14 +28,17 @@ function generateMarkdown(data) {
 ${data.description}
 
 ### Installation
+Follow the steps below to install the required node packages.
 ${data.installation}
 ### Useage
 ${data.use}
 ### Licence
+This project uses the following licence(s):
 ${data.license}
 ### Contributions
 ${data.contribution}
 ### Tests
+To test the application enter the following command into your terminal:
 ${data.test}
 ### Questions
 ${data.questions}
