@@ -7,6 +7,18 @@ const generateMarkdown = require("./utils/generateMarkdown");
 const questions = [
     {
         type: "input",
+        message: "What do you want to name the this file?",
+        name: "filename",
+        default: "generated_README",
+        filter(input) {
+            if (input.includes('.')) {
+                return input.substring(0, input.indexOf("."))
+            }
+            return input
+        }
+    },
+    {
+        type: "input",
         message: "What is the title of the project?",
         name: "title"
     },
@@ -14,7 +26,7 @@ const questions = [
         type: "input",
         message: "Describe the project.",
         name: "description",
-        default: "When you need to create a ReadMe for a project this application will produce one quickly and easily. The user will answer prompts in the terminal and will receive a well laid out ReadMe that is unique to the project."
+
     },
     {
         type: "input",
@@ -24,21 +36,21 @@ const questions = [
     },
     {
         type: "input",
-        message: "What is the primary useage for this app?",
+        message: "What is the primary usage for this app?",
         name: "use"
     },
     {
-        type: "input",
+        type: "list",
         message: "What type of license will this project have?",
-        // choices: ["ISC", " MIT"," WTFPL", " GPL 3.0",  " Apache 2.0", " GPL 2.0", " BSD 3", " LGPL 2.1", " Ms-Pl", " BSD 2", " Zlib", " Eclipse 1.0", " BSD 4"],
+        choices: ["ISC", " MIT", " WTFPL", " GPL 3.0", " Apache 2.0", " GPL 2.0", " BSD 3", " LGPL 2.1", " Ms-Pl", " BSD 2", " Zlib", " Eclipse 1.0", " BSD 4"],
         name: "license",
-        default: "ISC",
+        default: 1,
     },
     {
         type: "input",
         message: "What can be done to test the app?.",
         name: "test",
-        default:"In your terminal enter: npm run test"
+        default: "In your terminal enter: npm run test"
     },
     {
         type: "input",
@@ -54,18 +66,21 @@ const questions = [
     {
         type: "input",
         message: "What is your GitHub user name?",
-        name: "gitHubUser"
+        name: "gitHubUser",
+        default: "eh4git"
     },
     {
         type: "input",
         message: "What is your GitHub email?",
-        name: "gitHubEmail"
+        name: "gitHubEmail",
+        default: "ehirsch760@gmail.com"
     },
+  
 ];
 
 function init() {
     inquirer.prompt(questions).then((answers) => {
-       fs.writeFileSync(path.join(process.cwd(), "README.md"), generateMarkdown({ ...answers }));
+        fs.writeFileSync(path.join(process.cwd(), `${answers.filename}.md`), generateMarkdown({ ...answers }));
     });
 }
 

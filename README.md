@@ -17,10 +17,10 @@ When you need to create a ReadMe for a project this application will produce one
 ### Installation
 Follow the steps below to install the required node packages.<br>
 All dependencies listed in package.json. In your terminal enter: npm i
-### Useage
+### Usage
 To make it easy for developers to quickly and easily create a ReadMe for any project.
-### Licence
-This project uses the following licence(s):<br>
+### License
+This project uses the following license(s):<br>
 ISC
 ### Contributions
 Please feel free to contribute in any way you wish. Please read the documentation and submit a pull request. Any contributions are greatly appreciated. Feedback is also welcomed.
@@ -29,7 +29,7 @@ To test the application enter the following command into your terminal:<br>
 In your terminal enter: npm run test
 ### Questions
 Please direct any questions to the github email provided
-##### Profile_Picture
+#### My Github Profile
 ![eh4git Github Profile Picture](https://github.com/eh4git.png?size=200)<br>
 GitHub Profile: [eh4git](http://github.com/eh4git)
 ##### GitHub Email
