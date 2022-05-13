@@ -11,11 +11,17 @@ const questions = [
         name: "filename",
         default: "generated_README",
         filter(input) {
-            if (input.includes('.')) {
+            if (/[a-z]*.[a-z]*/i.test(input)) {
                 return input.substring(0, input.indexOf("."))
             }
             return input
         }
+    },
+    {
+        type: "list",
+        message: "Which layout would you like to use?",
+        name: "template",
+        choices: ["Original", "Starter"]
     },
     {
         type: "input",
@@ -78,10 +84,13 @@ const questions = [
   
 ];
 
-function init() {
+(function init() {
     inquirer.prompt(questions).then((answers) => {
-        fs.writeFileSync(path.join(process.cwd(), `${answers.filename}.md`), generateMarkdown({ ...answers }));
+        console.log(generateMarkdown({ ...answers }))
+        fs.writeFileSync(path.join(process.cwd(), `dist/${answers.filename}.md`), generateMarkdown({ ...answers }));
     });
-}
+})()
 
-init();
+
+// console.log(fs.readdirSync(path.join(process.cwd(), "./templates")))
+// console.log(fs.readFileSync(path.join(process.cwd(), "./templates/template.md"),{encoding:"utf8"}))
