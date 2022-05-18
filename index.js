@@ -3,94 +3,21 @@ const fs = require("fs");
 const path = require("path");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
-//Questions saved as objects
-const questions = [
-    {
-        type: "input",
-        message: "What do you want to name the this file?",
-        name: "filename",
-        default: "generated_README",
-        filter(input) {
-            if (/[a-z]*.[a-z]*/i.test(input)) {
-                return input.substring(0, input.indexOf("."))
-            }
-            return input
-        }
-    },
-    {
-        type: "list",
-        message: "Which layout would you like to use?",
-        name: "template",
-        choices: ["Original", "Starter"]
-    },
-    {
-        type: "input",
-        message: "What is the title of the project?",
-        name: "title"
-    },
-    {
-        type: "input",
-        message: "Describe the project.",
-        name: "description",
+const questions = require("./utils/questions/questions")
 
-    },
-    {
-        type: "input",
-        name: "installation",
-        message: "What command should be run to install all dependencies?",
-        default: "All dependencies listed in package.json. In your terminal enter: npm i"
-    },
-    {
-        type: "input",
-        message: "What is the primary usage for this app?",
-        name: "use"
-    },
-    {
-        type: "list",
-        message: "What type of license will this project have?",
-        choices: ["ISC", " MIT", " WTFPL", " GPL 3.0", " Apache 2.0", " GPL 2.0", " BSD 3", " LGPL 2.1", " Ms-Pl", " BSD 2", " Zlib", " Eclipse 1.0", " BSD 4"],
-        name: "license",
-        default: 1,
-    },
-    {
-        type: "input",
-        message: "What can be done to test the app?.",
-        name: "test",
-        default: "In your terminal enter: npm run test"
-    },
-    {
-        type: "input",
-        message: "What do you want people to know about contributing to this project?",
-        name: "contribution",
-        default: "Please feel free to contribute in any way you wish. Please read the documentation and submit a pull request. Any contributions are greatly appreciated. Feedback is also welcomed."
-    },
-    {
-        type: "input",
-        message: "Any questions?",
-        name: "questions"
-    },
-    {
-        type: "input",
-        message: "What is your GitHub user name?",
-        name: "gitHubUser",
-        default: "eh4git"
-    },
-    {
-        type: "input",
-        message: "What is your GitHub email?",
-        name: "gitHubEmail",
-        default: "ehirsch760@gmail.com"
-    },
-  
-];
-
-(function init() {
-    inquirer.prompt(questions).then((answers) => {
-        console.log(generateMarkdown({ ...answers }))
-        fs.writeFileSync(path.join(process.cwd(), `dist/${answers.filename}.md`), generateMarkdown({ ...answers }));
-    });
-})()
-
-
-// console.log(fs.readdirSync(path.join(process.cwd(), "./templates")))
-// console.log(fs.readFileSync(path.join(process.cwd(), "./templates/template.md"),{encoding:"utf8"}))
+let template;
+(init = () => inquirer.prompt(questions.layout).then(layout => {
+     switch(layout.template){
+         case "Original":
+             template = "Original"
+            return  questions.original
+         case "starter":
+             template = "Starter"
+            return questions.starter
+         break;
+         default:
+             console.log(layout)
+             console.warn("Template name not found.")
+             break;
+     }
+    }).then(questions => inquirer.prompt(questions).then(answers => fs.writeFileSync(path.join(process.cwd(), `dist/${answers.filename}.md`), generateMarkdown({ ...answers, template })))))();
