@@ -1,19 +1,18 @@
-const getBadge = require("../utils/pieces/badge")
+const getBadge = require("../utils/pieces/badge");
 
 module.exports = data => `
 # ${data.title}
 
-${getBadge(data.gitHubUser, data.title, data.license)}
+${getBadge(data.githubUser, data.title, data.license)}
 ### Table of Contents
-* [Description](#Description)
-* [Installation](#Installation)
-* [Usage](#Usage)
-* [License](#License)
-* [Contributions](#Contributions)
-* [Tests](#Tests)
-* [Questions](#Questions)
-* [Profile Picture](#My github Profile)
-* [Github Email](#Github_Profile)
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributions](#contributions)
+* [Tests](#tests)
+* [Questions](#questions)
+* [About Me](#git)
 ### Description
 ${data.description}
 ### Installation
@@ -31,9 +30,12 @@ To test the application enter the following command into your terminal:<br>
 ${data.test}
 ### Questions
 ${data.questions}
-##### My github Profile
-![${data.gitHubUser} Github Profile Picture](https://github.com/${data.gitHubUser}.png?size=200)<br>
-GitHub Profile: [${data.gitHubUser}](http://github.com/${data.gitHubUser})
+<span id="git"></span>
+##### My Github Profile
+![${data.githubUser} Github Profile Picture](https://github.com/${
+  data.githubUser
+}.png?size=200)<br>
+[My GitHub](http://github.com/${data.githubUser})
 ##### GitHub Email
 ${data.gitHubEmail}
-`
+`;

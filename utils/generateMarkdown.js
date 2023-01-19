@@ -1,4 +1,4 @@
-const templates = require("../templates/template");
+const templates = require("../templates");
 
 module.exports = data => {
   // console.log(data)
@@ -8,7 +8,6 @@ module.exports = data => {
     case "Starter":
       return templates.starter(data);
     default:
-      return new Error("Incorrect template name?!? Who programmed this thing!")
-
+      throw new Error("Incorrect template name?!? Who programmed this thing!");
   }
-}
+};
